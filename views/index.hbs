@@ -1,0 +1,22 @@
+<h1>View projects</h1>
+
+<!-- Part 1: View all projects -->
+<!-- YOUR CODE HERE -->
+<br>
+{{#each items}}
+    <div>
+        <b> {{this.title}} </b>
+        <br>
+        <li style="margin-left:2em">     id: {{this._id}} </style> </li>
+            {{!-- <li style="margin-left:2em">Author: {{this.author}}</li>
+            <li style="margin-left:2em">Date: {{this.date}}</li> --}}
+            <br>
+            {{!-- <br> --}}
+    
+    </div>
+{{/each}}
+
+<!-- Part 2: Create new project -->
+<!-- YOUR CODE HERE -->
+
+<a href="/new"> Create new project </a>
