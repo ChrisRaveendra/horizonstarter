@@ -2,10 +2,18 @@
 
 // Project model
 var mongoose = require('mongoose');
-
+var Contribution = mongoose.model('Contribution', {
+  name: {
+    type: String
+  },
+  amount: {
+    type: Number
+  }
+})
 var Project = mongoose.model('Project', {
   title: {
     type: String,
+    required: true
   },
 
   goal: {
@@ -25,6 +33,11 @@ var Project = mongoose.model('Project', {
   end: {
     type: Date,
     required: true
+  },
+
+  contributions: {
+    type: Array,
+    children: Contribution
   }
 });
 

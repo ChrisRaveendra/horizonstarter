@@ -3,7 +3,52 @@
 <!-- Part 3: View a single project -->
 
 <!-- YOUR CODE HERE -->
+{{#if proj}}
+<div>
+    <b> {{proj.title}} </b>
+    <br>
+    <li style="margin-left:2em"> id: {{proj._id}} </style>
+    </li>
+    {{!--
+    <li style="margin-left:2em">Author: {{this.author}}</li>
+    <li style="margin-left:2em">Date: {{this.date}}</li> --}}
+    <li style="margin-left:2em"> goal: ${{proj.goal}} </style>
+    </li>
+    <li style="margin-left:2em"> description: {{proj.description}} </style>
+    </li>
+    <li style="margin-left:2em"> start date: {{proj.start}} </style>
+    </li>
+    <li style="margin-left:2em"> end date: {{proj.end}} </style>
+    </li>
+    <br> 
+    <li style="margin-left:2em"> contributions from {{proj.contributions.length}} contributor(s) has raised ${{raised}} dollars: </style>
+    {{#each proj.contributions}}
+            <li style="margin-left:4em"> contributor: {{this.name}} </style>
+            <li style="margin-left:4em"> amount: {{this.amount}} </style>
+            <br>
+    {{/each}}
+    </li>
+
+    <br>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+            style="width:{{ratio}}%">
+            {{ratio}}%
+        </div>
+    </div>
+ 
+    <br>
+
+</div>
+
+{{/if}}
 
 <!-- Part 4: Contribute to a project -->
-
-<!-- YOUR CODE HERE -->
+Please help me :')
+<form method='POST' action="/project/{{proj._id}}">
+    <span>
+        <input type='text' name="name" value="" placeholder="Name">
+        <input type='text' name="amount" value="" placeholder="Amount ($$)">
+        <input type="submit" name="" value="submit">
+    </span>
+</form>

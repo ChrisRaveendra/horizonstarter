@@ -4,18 +4,45 @@
 <!-- Part 5: Project categories -->
 <!-- YOUR CODE HERE -->
 
+{{#if data}}
+<p>
+    <font size="10" color="red">Error please fill out necessary forms!</font>
+</p>
+{{/if}}
+
+{{#if mongo}}
+<p>
+    <font size="10" color="red"> Server is encountering issues, please try again </font>
+</p>
+{{/if}}
+
 <form method='POST' action="/new" id="newProj">
     <span>
-        <input type='text' name="title" value="" placeholder="Title">
-        <input type='text' name="goal" value="" placeholder="Goal">
-        <br>
-        <textarea rows="4" cols="50" placeholder="Describe your project" name="description" form="newProj"></textarea>
-        <br>
-        <input type='date' name="start" value=""> Start date
-        <br>
-        <input type='date' name="end" value=""> End date
+        {{#if data}}
+            <input type='text' name="title" value="{{data.title}}" placeholder="Title">
+            <input type='text' name="goal" value="{{data.goal}}" placeholder="Funding goal">
+            <br>
+            <textarea rows="4" cols="50" placeholder="Describe your project" name="description" form="newProj">{{data.description}}</textarea>
+            <br>
+            <input type='date' name="start" value="{{data.start}}"> Start date
+            <br>
+            <input type='date' name="end" value="{{data.end}}"> End date
 
-        <br>
-        <input type="submit" name="" value="submit">
+            <br>
+            <input type="submit" name="" value="submit">
+
+        {{else}} 
+            <input type='text' name="title" value="" placeholder="Title">
+            <input type='text' name="goal" value="" placeholder="Goal">
+            <br>
+            <textarea rows="4" cols="50" placeholder="Describe your project" name="description" form="newProj"></textarea>
+            <br>
+            <input type='date' name="start" value=""> Start date
+            <br>
+            <input type='date' name="end" value=""> End date
+
+            <br>
+            <input type="submit" name="" value="submit">
+        {{/if}}
     </span>
 </form>
