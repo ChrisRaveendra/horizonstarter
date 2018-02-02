@@ -1,11 +1,15 @@
-<h1>View Project</h1>
+{{!-- <h1>View Project</h1> --}}
 
 <!-- Part 3: View a single project -->
 
 <!-- YOUR CODE HERE -->
 {{#if proj}}
 <div>
-    <b> {{proj.title}} </b>
+    <h1> {{proj.title}} </h1>
+    <h4> Category: {{proj.category}}</h4>
+    <a href="/project/{{proj._id}}/edit"> Edit project details</a>
+
+    <br>
     <br>
     <li style="margin-left:2em"> id: {{proj._id}} </style>
     </li>
@@ -21,10 +25,9 @@
     <li style="margin-left:2em"> end date: {{proj.end}} </style>
     </li>
     <br> 
-    <li style="margin-left:2em"> contributions from {{proj.contributions.length}} contributor(s) has raised ${{raised}} dollars: </style>
+    <div style="margin-left:2em"> Contributions from {{proj.contributions.length}} donor(s) has raised ${{raised}} dollars: </div>
     {{#each proj.contributions}}
-            <li style="margin-left:4em"> contributor: {{this.name}} </style>
-            <li style="margin-left:4em"> amount: {{this.amount}} </style>
+            <li style="margin-left:4em"> {{this.name}}: ${{this.amount}} </style>
             <br>
     {{/each}}
     </li>
@@ -52,3 +55,5 @@ Please help me :')
         <input type="submit" name="" value="submit">
     </span>
 </form>
+<br>
+<a href="/"> Project Index </a>

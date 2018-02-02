@@ -1,0 +1,84 @@
+<h2>Edit project</h2>
+
+<!-- Part 2: Create project -->
+<!-- Part 5: Project categories -->
+<!-- YOUR CODE HERE -->
+
+{{#if data}}
+<p>
+    <font size="10" color="red">Error please fill out necessary forms!</font>
+</p>
+{{/if}} {{#if mongo}}
+<p>
+    <font size="10" color="red"> Server is encountering issues, please try again </font>
+</p>
+{{/if}}
+
+<h4>Current Project Information: </h4>
+<li style="margin-left:2em"> title: {{project.title}} </style>
+<br>
+<li style="margin-left:2em"> category: {{project._id}} </style>
+<br>
+<li style="margin-left:2em"> id: {{project._id}} </style>
+</li>
+{{!--
+<li style="margin-left:2em">Author: {{this.author}}</li>
+<li style="margin-left:2em">Date: {{this.date}}</li> --}}
+<li style="margin-left:2em"> goal: ${{project.goal}} </style>
+</li>
+<li style="margin-left:2em"> description: {{project.description}} </style>
+</li>
+<li style="margin-left:2em"> start date: {{project.start}} </style>
+</li>
+<li style="margin-left:2em"> end date: {{project.end}} </style>
+</li>
+
+<br>
+<br>
+<form method='POST' action="/project/{{project.id}}/edit" id="newProj">
+    <span>
+        {{#if data}}
+        <input type='text' name="title" value="{{project.title}}" placeholder="Title">
+        <input type='text' name="goal" value="{{project.goal}}" placeholder="Funding goal">
+        <br>
+        <textarea rows="4" cols="50" placeholder="Describe your project" name="description" form="newProj">{{project.description}}</textarea>
+        <br>
+        <input type='date' name="start" value="{{project.start}}"> Start date
+        <br>
+        <input type='date' name="end" value="{{project.end}}"> End date
+
+        <br>
+        <input type="submit" name="" value="submit"> {{else}}
+        <input type='text' name="title" value="" placeholder="Title">
+        <input type='text' name="goal" value="" placeholder="Goal">
+        <br>
+        <textarea rows="4" cols="50" placeholder="Describe your project" name="description" form="newProj"></textarea>
+        <br>
+        <input type='date' name="start" value=""> Start date
+        <br>
+        <input type='date' name="end" value=""> End date
+        <br>
+        <br>
+        <label for="category">Project Category</label>
+        <br>
+        <select name="category">
+            <option value="Famous Muppet Frogs">Famous Muppet Frogs</option>
+            <option value="Current Black Presidents">Current Black Presidents</option>
+            <option value="The Pen Is Mightier">The Pen Is Mightier</option>
+            <option value="Famous Mothers">Famous Mothers</option>
+            <option value="Drummers Named Ringo">Drummers Named Ringo</option>
+            <option value="1-Letter Words">1-Letter Words</option>
+            <option value='Months That Start With "Feb"'>Months That Start With "Feb"</option>
+            <option value="How Many Fingers Am I Holding Up">How Many Fingers Am I Holding Up</option>
+            <option value="Potent Potables">Potent Potables</option>
+
+        </select>
+        <br>
+        <br>
+        <input type="submit" name="" value="Update your Project"> {{/if}}
+    </span>
+</form>
+<br>
+<a href="/project/{{project._id}}"> Cancel Edits </a>
+<br>
+<a href="/"> Project Index </a>

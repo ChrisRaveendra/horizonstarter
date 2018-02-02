@@ -2,12 +2,23 @@
 
 <!-- Part 1: View all projects -->
 <!-- YOUR CODE HERE -->
+
+Sort by: <a href="/?sort=start"> start </a> <a href="/?sort=end"> end </a> <a href="/?sort=goal"> goal </a> <a href="/?sort=contributions"> contributions </a>
+<br><br>
+<a href="/?funded=true"> View Funded Campaigns </a>
+<br>
+<a href="/?funded=false"> View Pending Campaigns </a>
+<br>
+<a href="/"> View All Campaigns </a>
+
+<br>
 <br>
 {{#each items}}
     <div>
-        <b> {{this.title}} </b>
+        <b> <a href="/project/{{this._id}}">{{this.title}} </a></b>
         <br>
         <li style="margin-left:2em">     id: {{this._id}} </style> </li>
+        <li style="margin-left:2em"> category: {{this.category}} </style> </li>
             {{!-- <li style="margin-left:2em">Author: {{this.author}}</li>
             <li style="margin-left:2em">Date: {{this.date}}</li> --}}
         <li style="margin-left:2em"> goal: ${{this.goal}} </style> </li>
