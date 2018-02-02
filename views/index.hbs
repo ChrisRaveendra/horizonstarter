@@ -17,8 +17,10 @@ Sort by: <a href="/?sort=start"> start </a> <a href="/?sort=end"> end </a> <a hr
     <div>
         <b> <a href="/project/{{this._id}}">{{this.title}} </a></b>
         <br>
-        <li style="margin-left:2em">     id: {{this._id}} </style> </li>
+            <img src="{{this.photo}}" alt="">
+        <li style="margin-left:2em"> id: {{this._id}} </style> </li>
         <li style="margin-left:2em"> category: {{this.category}} </style> </li>
+        <li style="margin-left:2em"> category: {{this.photo}} </style></li>
             {{!-- <li style="margin-left:2em">Author: {{this.author}}</li>
             <li style="margin-left:2em">Date: {{this.date}}</li> --}}
         <li style="margin-left:2em"> goal: ${{this.goal}} </style> </li>

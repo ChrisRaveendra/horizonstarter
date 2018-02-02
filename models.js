@@ -2,6 +2,7 @@
 
 // Project model
 var mongoose = require('mongoose');
+let validators = require('mongoose-validators');
 var Contribution = mongoose.model('Contribution', {
 	name: {
 		type: String
@@ -53,6 +54,11 @@ var Project = mongoose.model('Project', {
 			'How Many Fingers Am I Holding Up',
 			'Potent Potables'
 		]
+	},
+
+	photo: {
+		type: String,
+		validate: validators.isURL()
 	}
 });
 

@@ -68,7 +68,6 @@ router.get('/', function(req, res) {
 				
 				else {
 					for(let proj of result) arr.push(proj);
-
 					// console.log(arr);
 
 					if(req.query.sortdirection === 'asc') {
@@ -188,7 +187,8 @@ router.post('/new', function(req, res) {
 			description: req.body.description,
 			start: req.body.start,
 			end: req.body.end,
-			category: req.body.category
+			category: req.body.category,
+			photo: req.body.photo
 		 });
 
 		project.save(function (err) {
